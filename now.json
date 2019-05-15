@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "name": "wannaeat",
+    "builds": [
+      {
+        "src": "server/api/index.js",
+        "use": "@now/node",
+        "config": { "maxLambdaSize": "20mb" }
+      },
+      { "src": "package.json", "use": "@now/next" },
+      { "src": "*.txt", "use": "@now/static" }
+    ],
+    "alias": "hittaducmai.se",
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/server/api/index.js"
+      }
+    ]
+  }
+  

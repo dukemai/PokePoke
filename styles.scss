@@ -1,0 +1,173 @@
+@import '~foundation-sites/scss/util/util';
+@import 'settings';
+@import '~foundation-sites/scss/global';
+
+@import '~foundation-sites/scss/foundation.scss';
+@include foundation-everything;
+
+.title-bar {
+  height: 4rem;
+}
+.footer {
+  position: relative;
+}
+.mobile-nav-bar {
+  background-color: $primary-color;
+  a {
+    color: $white;
+  }
+}
+.filter{
+  &--disabled{
+    color: $white;
+  }
+  &--enabled{
+    color: $success-color;
+  }
+}
+
+$mobile-bottom-bar-primary-dark: darken($primary-color, 20%);
+$mobile-bottom-height: 3.778rem;
+.mobile-bottom-bar {
+  width: 100%;
+  height: $mobile-bottom-height;
+  background: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+
+  .footer-link {
+    flex: 1 1 auto;
+    text-align: center;
+    color: $white;
+    text-transform: uppercase;
+    font-size: rem-calc(13);
+    font-weight: bold;
+    padding: 0.907rem 1rem;
+    width: 50%;
+  }
+}
+
+.container {
+  &--main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.cell {
+  &--scroll {
+    overflow: auto;
+  }
+}
+
+.mobile-action-sheet {
+  background: $primary-color;
+  overflow: visible;
+  height: auto;
+  transform: translateY(100%);
+  color: $white;
+  padding-top: $global-padding;
+  z-index: 1;
+  border-bottom: 1px solid;
+
+  label {
+    color: $white;
+  }
+  .close-button {
+    top: 0;
+    font-size: 26px;
+    color: darken($primary-color, 20%);
+    display: none;
+  }
+
+  &.is-open .close-button {
+    display: block;
+  }
+  &.is-open .recipe {
+    height: 50vh;
+  }
+  .mobile-action-sheet-inner {
+    position: relative;
+    padding: 0 1rem 0.5rem;
+  }
+
+  .action-sheet-toggle {
+    position: absolute;
+    top: -$global-padding;
+    left: 50%;
+    transform: translate3D(-50%, -100%, 0);
+  }
+
+  &.position-bottom.is-transition-push::after {
+    box-shadow: none;
+  }
+
+  .button.white {
+    border: 1px solid $white;
+    color: $white;
+
+    &:hover,
+    &:active {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  &.position-bottom {
+    bottom: $mobile-bottom-height;
+  }
+}
+
+.card {
+  &--meal {
+    max-width: 105vh;
+    & .fi-check {
+      position: absolute;
+      right: 4px;
+      z-index: 2;
+      color: $success-color;
+    }
+  }
+  .card-image {
+    &__holder {
+      width: 100%;
+      padding-bottom: 56.25%;
+      position: relative;
+      overflow: hidden;
+      background-color: $light-gray;
+      & img {
+        position: absolute;
+        max-height: 100%;
+      }
+    }
+  }
+}
+
+.footer-text {
+  &--want {
+    color: $success-color;
+  }
+  &--next {
+  }
+}
+
+.recipe {
+  height: 0;
+  overflow: auto;
+
+  &__table {
+    & tbody {
+      color: $black;
+    }
+  }
+  &__label {
+    margin-right: 4px;
+
+    & .fi {
+      margin-right: 4px;
+    }
+  }
+}

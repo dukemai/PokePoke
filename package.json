@@ -1,0 +1,36 @@
+{
+  "name": "pokepoke",
+  "version": "1.0.0",
+  "description": "pokepoke app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./server",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dukemai/pokepoke.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dukemai/pokepoke/issues"
+  },
+  "homepage": "https://github.com/dukemai/me#readme",
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "calendarific": "^1.3.9",
+    "classnames": "^2.2.6",
+    "express": "^4.16.4",
+    "foundation-sites": "^6.5.3",
+    "helmet": "^3.18.0",
+    "lodash": "^4.17.11",
+    "next": "^8.1.0",
+    "node-fetch": "^2.5.0",
+    "node-sass": "^4.12.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "whatwg-fetch": "^3.0.0"
+  }
+}
