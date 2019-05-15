@@ -55,6 +55,15 @@ function Home() {
     setMeal(filteredMeals[(mealIndex + 1) % filteredMeals.length]);
   };
   const onNextClicked = () => {
+    next();
+  };
+  const onPreviousClicked = () => {
+    const filteredMeals = getFilteredMeals();
+    const mealIndex = filteredMeals.indexOf(meal);
+    const index = mealIndex - 1 < 0 ? filteredMeals.length - 1 : mealIndex - 1;
+    setMeal(filteredMeals[index]);
+  };
+  const onDontWantClicked = () => {
     if (selected.includes(meal.idMeal)) {
       const index = selected.indexOf(meal.idMeal);
       const toUpdate = [...selected];
@@ -62,7 +71,6 @@ function Home() {
       setSelected(toUpdate);
       saveSelected(selected);
     }
-    next();
   };
   const onWantClicked = () => {
     if (!selected.includes(meal.idMeal)) {
@@ -106,10 +114,17 @@ function Home() {
         </div>
         <section className="cell cell--scroll flex-child-auto grid-x grid-padding-x ">
           <section className="cell flex-container align-center align-middle">
-            <Meal meal={meal} />
+            <Meal
+              meal={meal}
+              onNextClicked={onNextClicked}
+              onPreviousClicked={onPreviousClicked}
+            />
           </section>
         </section>
-        <Footer onNextClicked={onNextClicked} onWantClicked={onWantClicked} />
+        <Footer
+          onNextClicked={onDontWantClicked}
+          onWantClicked={onWantClicked}
+        />
       </section>
     </AppContext.Provider>
   );

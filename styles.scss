@@ -131,6 +131,9 @@ $mobile-bottom-height: 3.778rem;
       color: $success-color;
     }
   }
+  & .card-divider{
+    justify-content: space-between;
+  }
   .card-image {
     &__holder {
       width: 100%;
