@@ -82,7 +82,6 @@ function Home() {
       setSelected(toUpdate);
       saveSelected(selected);
     }
-    next();
   };
   const onFilterClicked = () => {
     setFilterBySelected(!filterBySelected);
