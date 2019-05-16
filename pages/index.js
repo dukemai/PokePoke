@@ -21,6 +21,8 @@ const saveSelected = selected =>
 
 function Home() {
   const [meals, setMeals] = useState([]);
+  const [showingMeals, setShowingMeals] = useState([]);
+
   const [filterBySelected, setFilterBySelected] = useState(false);
   const [meal, setMeal] = useState({});
   const [selected, setSelected] = useState([]);
@@ -71,6 +73,7 @@ function Home() {
       setSelected(toUpdate);
       saveSelected(selected);
     }
+    next();
   };
   const onWantClicked = () => {
     if (!selected.includes(meal.idMeal)) {
@@ -93,7 +96,7 @@ function Home() {
     setMeal(filteredMeals[0]);
   }
   return (
-    <AppContext.Provider value={{ meal, meals, setMeal, selected }}>
+    <AppContext.Provider value={{ meal, meals, setMeal, selected, filterBySelected }}>
       <section className="container container--main flex-dir-column flex-container">
         <div className="mobile-nav-bar title-bar cell">
           <div className="title-bar-left" />
@@ -112,14 +115,12 @@ function Home() {
             </button>
           </div>
         </div>
-        <section className="cell cell--scroll flex-child-auto grid-x grid-padding-x ">
-          <section className="cell flex-container align-center align-middle">
-            <Meal
-              meal={meal}
-              onNextClicked={onNextClicked}
-              onPreviousClicked={onPreviousClicked}
-            />
-          </section>
+        <section className="cell flex-container align-middle align-center flex-child-auto">
+          <Meal
+            onNextClicked={onNextClicked}
+            onPreviousClicked={onPreviousClicked}
+            showNavigation={Boolean(filteredMeals.length)}
+          />
         </section>
         <Footer
           onNextClicked={onDontWantClicked}
