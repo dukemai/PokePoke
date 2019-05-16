@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node ./server",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,13 +26,23 @@
     "express": "^4.16.4",
     "foundation-sites": "^6.5.3",
     "helmet": "^3.18.0",
+    "jest": "^24.8.0",
+    "jest-dom": "^3.2.2",
     "lodash": "^4.17.11",
     "next": "^8.1.0",
+    "nock": "^10.0.6",
     "node-fetch": "^2.5.0",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-hooks-testing-library": "^0.5.0",
     "react-swipe": "^6.0.4",
+    "react-test-renderer": "^16.8.6",
+    "react-testing-library": "^7.0.0",
     "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.3.4",
+    "babel-jest": "24.1.0"
   }
 }
